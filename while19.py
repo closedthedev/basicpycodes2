@@ -3,30 +3,23 @@
 import random 
 
 print('JOGO DO PAR OU ÍMPAR, SE VOCÊ PERDER O PROGRAMA SERÁ ENCERRADO AUTOMATICAMENTE')
-números = [1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10]
-
+números = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+vit = 0
 while True:
-    
-    número_selecinado = random.choice(números)
+    número_selecionado = random.choice(números)
 
-    n = int(input('Digite um número:  '))
-    parouimpar = str(input('PAR OU ÍMPAR? P / I  ')) .strip() .upper()
+    n = int(input('Digite um número: '))
+    par_ou_impar = input('PAR OU ÍMPAR? P / I: ').strip().upper()
 
-    soma = n + número_selecinado
-    if soma % 2 == 0:
-        resultado = 'par'
-    else: resultado = 'ímpar'
+    soma = n + número_selecionado
+    resultado = 'PAR' if soma % 2 == 0 else 'ÍMPAR'
 
-    if resultado == 'par' and parouimpar == 'P':
-        print(f'Você escolheu {n} e a máquina escolheu {número_selecinado}, a soma deles é {soma}. Resultando em um número {resultado}. Portanto, você ganhou!')
+   
 
-    elif  resultado == 'ímpar' and parouimpar == 'I':
-        print(f'Você escolheu {n} e a máquina escolheu {número_selecinado}, a soma deles é {soma}. Resultando em um número {resultado}. Portanto, você ganhou!')
+    if (resultado == 'PAR' and par_ou_impar == 'P') or (resultado == 'ÍMPAR' and par_ou_impar == 'I'):
+         vit += 1
+         print(f'Você escolheu {n} e a máquina escolheu {número_selecionado}, a soma deles é {soma}. Resultando em um número {resultado}. Portanto, você ganhou. Você está numa sequência de {vit} vitórias!')
+    else:
 
-    elif resultado == 'ímpar' and parouimpar == 'P':
-        print(f'Você escolheu {n} e a máquina escolheu {número_selecinado}, a soma deles é {soma}. Resultando em um número {resultado}. Portanto, você perdeu!')
-        break
-
-    elif resultado == 'par' and parouimpar == 'I':
-        print(f'Você escolheu {n} e a máquina escolheu {número_selecinado}, a soma deles é {soma}. Resultando em um número {resultado}. Portanto, você perdeu!')
+        print(f'Você escolheu {n} e a máquina escolheu {número_selecionado}, a soma deles é {soma}. Resultando em um número {resultado}. Portanto, você perdeu!')
         break
